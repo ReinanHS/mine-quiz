@@ -1,0 +1,75 @@
+<!doctype html>
+
+<html lang="pt-br">
+<head>
+  	<meta charset="utf-8">
+
+	<title>Quiz</title>
+  	<meta name="description" content="The HTML5 Herald">
+  	<meta name="author" content="ReinanHS">
+
+	<link rel="stylesheet" href="css/loading.css?v=1.0">
+	<link rel="stylesheet" href="css/style.css?v=1.0">
+
+</head>
+
+<body>
+
+	<section class="start" style="display: none;">
+		<main>
+			<div class="img-sec"></div>
+		  	<div class="form-sec">
+
+				<div class="first">
+					<h1>Perfis Comportamentais</h1>
+				    <form>
+				      <h2>O que é Analisado no Teste Comportamental?</h2>
+				      <p>Em essência, o teste comportamental é uma das metodologias mais assertivas e estratégicas no que tange a boa gestão de pessoas nas organizações. Ressalto isso porque é fato inegável que, quanto mais compatível for o seu quadro de funcionários com as suas necessidades, desafios e metas, maiores são suas chances de ser bem-sucedida.</p>
+				      <div class="inputs">
+				        <p>Informe seu email para continuar!</p>
+				        <input type="email" placeholder="Email Address" required />
+				        <button>Continuar</button>
+				      </div>
+				    </form>
+				</div>
+
+				<div class="instructions" style="display: none;">
+					<h2>Instruções:</h2>
+				    <p>Não tente "acertar” as respostas que parecem mais "adequadas” ou "socialmente corretas” . Para não distorcer o resultado, procure ser bem verdadeiro e escolher a resposta mais adequada "para você”!</p>
+				    <div class="inputs">
+				    	<button>Avançar</button>
+				    </div>
+				</div>
+		  	</div>
+		</main>
+	</section>
+
+	<section class="quiz" style="display: flex;">
+		<div class="quiz-container">
+		  <h2>Prepara Cursos Simão Dias</h2>
+		  <div class="question box">
+		    <p><span>1.</span> Eu sou...?</p>
+		  </div>
+		  <ul class="answers">
+		    <li class="answer box">
+		      <p><span>a</span> Idealista, criativo e visionário</p>
+		    </li>
+		    <li class="answer box">
+		      <p><span>b</span> Divertido, espiritual e benéfico</p>
+		    </li>
+		    <li class="answer box">
+		      <p><span>c</span> Confiável, meticuloso e previsível</p>
+		    </li>
+		    <li class="answer box">
+		      <p><span>d</span> Focado, determinado e persistente</p>
+		    </li>
+		  </ul>
+		  <button class="box" id="btnQuiz">Próxima<span>&#x203A;</span></button>
+		</div>
+	</section>
+
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>
