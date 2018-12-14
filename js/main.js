@@ -1,5 +1,6 @@
 (function(){
-	var index = 1;
+
+	/*var index = 1;
 	var resultados = [];
 
 	var form = document.getElementsByTagName('form')[0];
@@ -19,11 +20,11 @@
 	document.getElementsByTagName('button')[1].addEventListener('click', function(){
 		document.querySelector('.start').style.display = 'none';
 		document.querySelector('.quiz').style.display = 'flex';
-	});
+	});*/
 
 
 	$(document).ready(function(){
-		createQuiz();
+		//createQuiz();
 	  	var checkmark = "<span class='checkmark'>&#x2713;</span>";
 	  
 		$(".answer").click(function() {
@@ -32,7 +33,7 @@
 		});
 	  
 	  
-		$("#btnQuiz").click(function() {
+		/*$("#btnQuiz").click(function() {
 			if($(".active").length) {
 
 				resultados[index] = $(".active").index();
@@ -46,13 +47,13 @@
 			} else {
 				alert("Por favor selecione uma resposta!");
 			}
-		});
+		});*/
 	});
 
-	function createQuiz()
+	/*function createQuiz()
 	{
 		$.ajax({
-		  	url: 'http://localhost/quizPrepara/quiz/'+index,
+		  	url: window.php_url+'get/quiz/'+index,
 		  	type: 'GET',
 		  	dataType: 'json'
 		  })
@@ -76,6 +77,6 @@
 		});
 
 		return true;
-	}
+	}*/
 
 })();

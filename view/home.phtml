@@ -10,66 +10,129 @@
 
 	<link rel="stylesheet" href="css/loading.css?v=1.0">
 	<link rel="stylesheet" href="css/style.css?v=1.0">
+	<link rel="stylesheet" href="https://unpkg.com/vue-toastr-2/dist/vue-toastr-2.min.css">
 
 </head>
 
 <body>
 
-	<section class="start" style="display: none;">
-		<main>
-			<div class="img-sec"></div>
-		  	<div class="form-sec">
+	<div id="app">
+		<strat v-if="index == 0"></strat>
+		<quiz v-if="index == 1"></quiz>
+	</div>
 
-				<div class="first">
-					<h1>Perfis Comportamentais</h1>
-				    <form>
-				      <h2>O que é Analisado no Teste Comportamental?</h2>
-				      <p>Em essência, o teste comportamental é uma das metodologias mais assertivas e estratégicas no que tange a boa gestão de pessoas nas organizações. Ressalto isso porque é fato inegável que, quanto mais compatível for o seu quadro de funcionários com as suas necessidades, desafios e metas, maiores são suas chances de ser bem-sucedida.</p>
-				      <div class="inputs">
-				        <p>Informe seu email para continuar!</p>
-				        <input type="email" placeholder="Email Address" required />
-				        <button>Continuar</button>
-				      </div>
-				    </form>
-				</div>
+	<?php include_once($file.'view/home/start.phtml'); ?>
+	<?php include_once($file.'view/home/quiz.phtml'); ?>
 
-				<div class="instructions" style="display: none;">
-					<h2>Instruções:</h2>
-				    <p>Não tente "acertar” as respostas que parecem mais "adequadas” ou "socialmente corretas” . Para não distorcer o resultado, procure ser bem verdadeiro e escolher a resposta mais adequada "para você”!</p>
-				    <div class="inputs">
-				    	<button>Avançar</button>
-				    </div>
-				</div>
-		  	</div>
-		</main>
-	</section>
-
-	<section class="quiz" style="display: flex;">
-		<div class="quiz-container">
-		  <h2>Prepara Cursos Simão Dias</h2>
-		  <div class="question box">
-		    <p><span>1.</span> Eu sou...?</p>
-		  </div>
-		  <ul class="answers">
-		    <li class="answer box">
-		      <p><span>a</span> Idealista, criativo e visionário</p>
-		    </li>
-		    <li class="answer box">
-		      <p><span>b</span> Divertido, espiritual e benéfico</p>
-		    </li>
-		    <li class="answer box">
-		      <p><span>c</span> Confiável, meticuloso e previsível</p>
-		    </li>
-		    <li class="answer box">
-		      <p><span>d</span> Focado, determinado e persistente</p>
-		    </li>
-		  </ul>
-		  <button class="box" id="btnQuiz">Próxima<span>&#x203A;</span></button>
-		</div>
-	</section>
-
-
+	<script type="text/javascript">
+		window.php_url = '<?php echo $cofig['main']['url']; ?>';
+	</script>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script src="js/main.js"></script>
+	<!-- <script src="js/main.js"></script> -->
+	<!-- Vuejs -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+    <script src="https://unpkg.com/vue-toastr-2/dist/vue-toastr-2.js"></script>
+	<script type="text/javascript">
+		var strat = Vue.component('strat', {
+			data: function () {
+				return {
+				  input_email: '',
+				  index: 0,
+				}
+			},
+			watch: {
+				input_email : function(val){
+				  app.config['email'] = val;
+				},
+			},
+			methods:{
+				next: function(){
+					if(this.input_email.length < 8){
+						this.$toastr.error('O campo email é obrigatorio', '', 
+							{ 
+								"positionClass": "toast-top-left",
+								"progressBar": true,
+								"closeButton": true, 
+							}
+						);
+					}else if(this.index < 1){
+						this.index++;
+					}else if(this.index == 1){
+						this.$toastr.info('Boa sorte', '', 
+							{ 
+								"positionClass": "toast-top-left",
+								"closeButton": true, 
+							}
+						);
+
+						app.index++;
+					}
+				},
+			},
+			template: '#start',
+		});
+
+		var quiz = Vue.component('quiz', {
+			created: function(){
+				this.getQuiz();
+			},
+			data: function () {
+				return {
+				  quiz_index: 1,
+				  quiz: '',
+				  quiz_a: '',
+				  quiz_b: '',
+				  quiz_c: '',
+				  quiz_d: '',
+				  load: false,
+				}
+			},
+			methods:{
+				quizNext: function(){
+					this.load = false;
+					this.getQuiz();		
+				},
+				getQuiz: function(){
+					<?php if($cofig['main']['type'] == 'mysql'):?>
+					var url = '<?php echo $cofig['main']['url']; ?>get/quiz/'+this.quiz_index;
+					<?php else: ?>
+					var url = '<?php echo $cofig['main']['url']; ?>js/json/'+this.quiz_index+'.json';
+					<?php endif; ?>
+					this.$http.get(url).then(response => {
+						// success callback
+						var data = JSON.parse(response.bodyText);
+						this.quiz_index++;
+						this.quiz = data['question'];
+						this.quiz_a = data['i'];
+						this.quiz_b = data['c'];
+						this.quiz_c = data['o'];
+						this.quiz_d = data['a'];
+
+						this.load = true;
+					}, response => {
+						// error callback
+					});
+				},
+				btn: function(elen){
+					$(elen).parent().siblings(".answer").removeClass("active").children("span").remove();
+					$(elen).parent().addClass("active").append("<span class='checkmark'>&#x2713;</span>");
+				},
+			},
+		  	template: '#quiz',
+		});
+
+		var app = new Vue({
+		  el: '#app',
+		  data: {
+		    index: 1,
+		    config: {
+		    	'email': '',
+		    },
+		  },
+		  methods: {
+		  }
+		});
+	</script>
 </body>
 </html>

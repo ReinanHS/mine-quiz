@@ -1,0 +1,31 @@
+<template id="start">
+	<section class="start">
+		<main>
+			<div class="img-sec"></div>
+		  	<div class="form-sec">
+
+				<div class="first" v-if="index == 0">
+					<h1>Perfis Comportamentais</h1>
+				    <form>
+				      <h2>O que é Analisado no Teste Comportamental?</h2>
+				      <p>Em essência, o teste comportamental é uma das metodologias mais assertivas e estratégicas no que tange a boa gestão de pessoas nas organizações. Ressalto isso porque é fato inegável que, quanto mais compatível for o seu quadro de funcionários com as suas necessidades, desafios e metas, maiores são suas chances de ser bem-sucedida.</p>
+				      <div class="inputs">
+				        <p>Informe seu email para continuar!</p>
+				        <input type="email" placeholder="Email Address" v-model="input_email" />
+				        <button @click.stop.prevent="next()">Continuar</button>
+				      </div>
+				    </form>
+				</div>
+
+				<div class="instructions" v-if="index == 1">
+					<br><br><br>
+					<h2>Instruções:</h2>
+				    <p>Não tente "acertar” as respostas que parecem mais "adequadas” ou "socialmente corretas” . Para não distorcer o resultado, procure ser bem verdadeiro e escolher a resposta mais adequada "para você”!</p>
+				    <div class="inputs">
+				    	<button @click.stop.prevent="next()">Avançar</button>
+				    </div>
+				</div>
+		  	</div>
+		</main>
+	</section>
+</template>
