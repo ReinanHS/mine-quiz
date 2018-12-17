@@ -34,11 +34,25 @@ class rotas extends action
 		    	$this->PageHome();
 				return true;
 			}
+			elseif($this->urls[0] == 'resultados'){
+				$this->PageResult();
+				return true;
+			}
 			elseif($this->urls[0] == 'get' && $this->urls[1] == 'quiz' && isset($this->urls[2]))
 			{
 				if(is_numeric($this->urls[2]))
 			 	{
 			 		$this->PageQuiz($this->urls[2]);
+			 		return false;
+			 	}
+			 	
+			 	return $this->fileNotFind();
+			}
+			elseif($this->urls[0] == 'set' && $this->urls[1] == 'result')
+			{
+				if(!empty($_POST))
+			 	{
+			 		$this->PageSetResult();
 			 		return false;
 			 	}
 			 	

@@ -1,0 +1,65 @@
+@import "https://fonts.googleapis.com/css?family=Bree+Serif";
+
+body {
+  margin: 0; padding: 0;
+}
+.statistics {
+  background-image: linear-gradient(135deg, #4ebdc0, #53c9b3);
+  position: relative;
+  text-align: center;
+  padding-top: 20px;
+  color: #E7F7F5;
+  font-family: 'Helvetica Neue', 'Arial';
+  font-weight: 100;
+  letter-spacing: 1px;
+  line-height: 1;
+  padding-bottom: 15px;
+}
+.statistics h1{
+  font-size: 45px;
+  font-family: 'Bree Serif', serif;
+}
+.statistics a {
+  display: block;
+  margin-bottom: 1em;
+  color: #E7F7F5;
+  text-decoration: none;
+}
+.statistics a:last-of-type {
+  font-size: 0.9em;
+}
+.statistics a:hover {
+  text-decoration: underline;
+}
+.statistics ul {
+  margin-bottom: 4em;
+}
+.chart {
+  display: inline-block;
+  width: 95px;
+  height: 95px;
+  margin: 0 10px;
+  vertical-align: top;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-top: 22px;
+}
+.chart span {
+  display: block;
+  font-size: 2em;
+  font-weight: normal;
+}
+.chart canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.blog-footer {
+    padding: 2.5rem 0;
+    color: #999;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-top: .05rem solid #e5e5e5;
+}

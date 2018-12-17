@@ -3,19 +3,19 @@
 		<div class="quiz-container" v-if="load">
 		  <h2>Prepara Cursos Simão Dias</h2>
 		  <div class="question box">
-		    <p><span>{{ quiz_index }}.</span> {{ quiz }}</p>
+		    <p><span>{{ quiz_index -1 }}.</span> {{ quiz }}</p>
 		  </div>
 		  <ul class="answers">
-		    <li class="answer box" @click.stop.prevent="btn($event.target)">
+		    <li class="answer box" @click.stop.prevent="btn($event.target, 0)">
 		      <p><span>I</span> {{ quiz_a }}</p>
 		    </li>
-		    <li class="answer box" @click.stop.prevent="btn($event.target)">
+		    <li class="answer box" @click.stop.prevent="btn($event.target, 1)">
 		      <p><span>C</span> {{ quiz_b }}</p>
 		    </li>
-		    <li class="answer box" @click.stop.prevent="btn($event.target)">
+		    <li class="answer box" @click.stop.prevent="btn($event.target, 2)">
 		      <p><span>O</span> {{ quiz_c }}</p>
 		    </li>
-		    <li class="answer box" @click.stop.prevent="btn($event.target)">
+		    <li class="answer box" @click.stop.prevent="btn($event.target, 3)">
 		      <p><span>A</span> {{ quiz_d }}</p>
 		    </li>
 		  </ul>

@@ -86,12 +86,89 @@
 				  quiz_c: '',
 				  quiz_d: '',
 				  load: false,
+				  result: [],
+				  btn_next: false,
 				}
 			},
 			methods:{
 				quizNext: function(){
-					this.load = false;
-					this.getQuiz();		
+					if((this.quiz_index) < 26){
+						if(this.btn_next){
+							this.load = false;
+							this.getQuiz();
+							this.btn_next = false;
+						}else{
+							this.$toastr.error('Por favor selecione uma opção!', '', 
+								{ 
+									"positionClass": "toast-top-left",
+									"closeButton": true, 
+								}
+							);
+						}
+							
+					}else{
+						this.quiz_index = 25;
+						app.index = 2;
+
+						var quiz_a = 0;
+						var quiz_b = 0;
+						var quiz_c = 0;
+						var quiz_d = 0;
+
+						for (var i = this.result.length; i >= 0; i--) 
+						{
+							if(this.result[i] == 0){
+								quiz_a++;
+							}else if(this.result[i] == 1){
+								quiz_b++;
+							}else if(this.result[i] == 2){
+								quiz_c++;
+							}else if(this.result[i] == 3){
+								quiz_d++;
+							}
+						}
+
+						quiz_a = quiz_a * 4;
+						quiz_b = quiz_b * 4;
+						quiz_c = quiz_c * 4;
+						quiz_d = quiz_d * 4;
+
+						//app.result = dados;
+						var url = '<?php echo $cofig['main']['url']; ?>set/result';
+
+						var user = new FormData();
+            			user.append('email', app.config['email']);
+            			
+            			user.append('i', quiz_a);
+            			user.append('c', quiz_b);
+            			user.append('a', quiz_c);
+            			user.append('o', quiz_d);
+
+            			this.$toastr.success('Aguarde alguns minutos', '', 
+							{ 
+								"positionClass": "toast-top-left",
+								"closeButton": true, 
+							}
+						);
+	
+						this.$http.post(url, user).then(response => {
+							// success callback
+							window.location.href = "<?php echo $cofig['main']['url']; ?>"+"resultados";
+							console.log(response);
+						}, response => {
+							// error callback
+							this.$toastr.error('Ocorreu um erro por favor reinicie o navegador!', '', 
+								{ 
+									"positionClass": "toast-top-left",
+									"closeButton": true, 
+								}
+							);
+							console.log(response);
+						});
+
+						
+
+					}	
 				},
 				getQuiz: function(){
 					<?php if($cofig['main']['type'] == 'mysql'):?>
@@ -114,9 +191,19 @@
 						// error callback
 					});
 				},
-				btn: function(elen){
-					$(elen).parent().siblings(".answer").removeClass("active").children("span").remove();
-					$(elen).parent().addClass("active").append("<span class='checkmark'>&#x2713;</span>");
+				btn: function(elen, index){
+					this.btn_next = true;
+
+					var lista = document.querySelectorAll('li.box');
+
+					for (var i = 0; i < lista.length; i++) 
+					{
+						$(lista[i]).removeClass("active").children("span").remove();
+					}
+
+					$(lista[index]).addClass("active").append("<span class='checkmark'>&#x2713;</span>");
+
+					this.result[this.quiz_index-1] = index;
 				},
 			},
 		  	template: '#quiz',
@@ -126,8 +213,9 @@
 		  el: '#app',
 		  data: {
 		    index: 1,
+		    result: [],
 		    config: {
-		    	'email': '',
+		    	'email': 'reinan@gmail.com',
 		    },
 		  },
 		  methods: {

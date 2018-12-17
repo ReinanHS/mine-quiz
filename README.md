@@ -10,7 +10,7 @@ Você deve ter instalado em seu computador a versão 5.5.9 ou maior do PHP e as 
 # Criação do Projeto
 Iremos primeiramente criar um projeto do mine quiz em nossa máquina. Abra o terminal do Windows e navegue até a pasta htdocs do XAMPP e digite o comando a seguir:
 ```sh
-$ git clone git@github.com:ReinanHS/notesapp.git Quiz-Dev
+$ git clone git@github.com:ReinanHS/Prepara-Curso-Mine-Quiz.git
 ```
 Assim usamos o Git para criar um novo projeto do mine quiz em nosso diretório htdocs chamado “Quiz-Dev”. Espere alguns instantes até serem baixados todos os arquivos, pois o processo pode demorar dependendo da conexão.
 
