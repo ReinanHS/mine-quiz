@@ -23,6 +23,14 @@ class action
 
 		return false;
 	}
+	public function PageEmail(){
+		$file = str_replace("controller", "", __DIR__);
+		$cofig = parse_ini_file( $file.'config.ini', true );
+		
+		include_once($this->file.'view/email/email.phtml');
+
+		return false;
+	}
 	public function PageQuiz($id)
 	{
 		require_once($this->file.'controller/class.quiz.php');

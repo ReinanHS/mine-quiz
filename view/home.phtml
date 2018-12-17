@@ -108,7 +108,7 @@
 							
 					}else{
 						this.quiz_index = 25;
-						app.index = 2;
+						//app.index = 2;
 
 						var quiz_a = 0;
 						var quiz_b = 0;
@@ -141,8 +141,8 @@
             			
             			user.append('i', quiz_a);
             			user.append('c', quiz_b);
-            			user.append('a', quiz_c);
-            			user.append('o', quiz_d);
+            			user.append('o', quiz_c);
+            			user.append('a', quiz_d);
 
             			this.$toastr.success('Aguarde alguns minutos', '', 
 							{ 
@@ -212,7 +212,7 @@
 		var app = new Vue({
 		  el: '#app',
 		  data: {
-		    index: 1,
+		    index: 0,
 		    result: [],
 		    config: {
 		    	'email': 'reinan@gmail.com',
