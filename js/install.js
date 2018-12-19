@@ -3,7 +3,7 @@ var eventBus = new Vue();
 var config1 = Vue.component('config-1', {
   data: function () {
     return {
-      input_url: 'http://localhost',
+      input_url: '',
       input_tipo: 'mysql',
       input_admin: 'Admin',
       input_senha: '',
@@ -90,10 +90,10 @@ var config4 = Vue.component('config-4', {
 var app = new Vue({
   el: '#app',
   data: {
-    indexConfig: 4,
+    indexConfig: 1,
     config: {
       'servidor': { 
-        'url': 'http://localhost', 
+        'url': '', 
         'tipo': 'mysql', 
         'admin': 'admin', 
         'senha': 'admin' 
@@ -248,7 +248,7 @@ var app = new Vue({
         this.error = true;
         this.error_log = res.bodyText;
 
-        if(res.bodyText == 'int(1)\n'){
+        if(res.bodyText == 'ok'){
           this.error = false;
           this.sucesso = true;
         }

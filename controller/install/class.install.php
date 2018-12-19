@@ -27,7 +27,7 @@ class install
 	}
 	public function createConfig(){
 		$log = include_once('config.php');
-		var_dump($log);
+		echo "ok";
 	}
 
 }
