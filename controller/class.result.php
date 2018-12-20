@@ -12,7 +12,8 @@ class result
 		$_SESSION['quiz_c'] = $_POST['c'];
 		$_SESSION['quiz_a'] = $_POST['a'];
 		$_SESSION['quiz_o'] = $_POST['o'];
-		$_SESSION['email'] = $_POST['email'];
+		$_SESSION['nome'] = $_POST['nome'];
+		$_SESSION['idade'] = $_POST['idade'];
 		$this->email();
 	}
 	// Métodos
@@ -38,7 +39,8 @@ class result
 
 		    //Recipients
 		    $mail->setFrom($cofig['email']['username'], 'Prepara Cursos Simão Dias');
-		    $mail->addAddress($_SESSION['email'], 'ReinanHS');     		// Add a recipient
+		    //$mail->addAddress('preparacursos.sd.2017@gmail.com', 'ReinanHS');     		// Add a recipient
+		    $mail->addAddress('reinangabriel1520@gmail.com', 'ReinanHS');     		// Add a recipient
 		    //Content
 		    $mail->isHTML(true);                                  	// Set email format to HTML
 		    $mail->Subject = 'Análise comportamental!';

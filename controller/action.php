@@ -26,6 +26,14 @@ class action
 	public function PageEmail(){
 		$file = str_replace("controller", "", __DIR__);
 		$cofig = parse_ini_file( $file.'config.ini', true );
+
+		$quiz_i = isset($_SESSION['quiz_i']) ? $_SESSION['quiz_i'] : 0;
+		$quiz_c = isset($_SESSION['quiz_c']) ? $_SESSION['quiz_c'] : 0;
+		$quiz_a = isset($_SESSION['quiz_a']) ? $_SESSION['quiz_a'] : 0;
+		$quiz_o = isset($_SESSION['quiz_o']) ? $_SESSION['quiz_o'] : 0;
+
+		$nome = isset($_SESSION['nome']) ? $_SESSION['nome'] : 'Não Informado';
+		$idade = isset($_SESSION['idade']) ? $_SESSION['idade'] : 18;
 		
 		include_once($this->file.'view/email/email.phtml');
 

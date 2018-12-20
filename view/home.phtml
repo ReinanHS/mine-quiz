@@ -80,19 +80,31 @@
 		var strat = Vue.component('strat', {
 			data: function () {
 				return {
-				  input_email: '',
+				  input_nome: '',
+				  input_idade: '',
 				  index: 0,
 				}
 			},
 			watch: {
-				input_email : function(val){
-				  app.config['email'] = val;
+				input_nome : function(val){
+				  app.config['nome'] = val;
+				},
+				input_idade : function(val){
+				  app.config['idade'] = val;
 				},
 			},
 			methods:{
 				next: function(){
-					if(this.input_email.length < 8){
-						this.$toastr.error('O campo email é obrigatorio', '', 
+					if(this.input_nome.length < 8){
+						this.$toastr.error('O campo nome é inválido deve ter 8 caracteres!', '', 
+							{ 
+								"positionClass": "toast-top-left",
+								"progressBar": true,
+								"closeButton": true, 
+							}
+						);
+					}else if(this.input_idade.length < 0 || this.input_idade.length > 2){
+						this.$toastr.error('O campo idade é inválido', '', 
 							{ 
 								"positionClass": "toast-top-left",
 								"progressBar": true,
@@ -180,7 +192,8 @@
 						var url = '<?php echo $cofig['main']['url']; ?>set/result';
 
 						var user = new FormData();
-            			user.append('email', app.config['email']);
+            			user.append('nome', app.config['nome']);
+            			user.append('idade', app.config['idade']);
             			
             			user.append('i', quiz_a);
             			user.append('c', quiz_b);
@@ -258,7 +271,8 @@
 		    index: 0,
 		    result: [],
 		    config: {
-		    	'email': 'reinan@gmail.com',
+		    	'nome': '',
+		    	'idade': '',
 		    },
 		  },
 		  methods: {
