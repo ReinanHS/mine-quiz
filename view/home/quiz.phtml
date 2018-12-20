@@ -3,7 +3,7 @@
 		<div class="quiz-container" v-if="load">
 		  <h2>Prepara Cursos Simão Dias</h2>
 		  <div class="question box">
-		    <p><span>{{ quiz_index -1 }}.</span> {{ quiz }}</p>
+		    <p><span>{{ quiz_index -1 }}. </span> {{ quiz }}</p>
 		  </div>
 		  <ul class="answers">
 		    <li class="answer box" @click.stop.prevent="btn($event.target, 0)">

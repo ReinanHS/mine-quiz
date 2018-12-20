@@ -29,7 +29,7 @@ class result
 		    //Server settings
 		    $mail->SMTPDebug = false;                            // Enable verbose debug output
 		    $mail->do_debug = 0;
-		    $mail->isSMTP();                                    // Set mailer to use SMTP # yiwip@khtyler.com
+		    $mail->isSMTP();                                    // Set mailer to use SMTP # yiwip@khtyler.com reinan5353@cliptik.net
 		    $mail->Host = $cofig['email']['host'];  			// Specify main and backup SMTP servers
 		    $mail->SMTPAuth = $cofig['email']['sMTPAuth'];      // Enable SMTP authentication
 		    $mail->Username = $cofig['email']['username'];      // SMTP username
