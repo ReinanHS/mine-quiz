@@ -1,10 +1,13 @@
 var eventBus = new Vue();
 
 var config1 = Vue.component('config-1', {
+  created: function(){
+    this.input_url = window.location.href.replace('install.php', '');
+  },
   data: function () {
     return {
       input_url: '',
-      input_tipo: 'mysql',
+      input_tipo: 'json',
       input_admin: 'Admin',
       input_senha: '',
     }
@@ -29,36 +32,6 @@ var config1 = Vue.component('config-1', {
 var config2 = Vue.component('config-2', {
   data: function () {
     return {
-      input_host: 'mail.smtp2go.com',
-      input_username: '',
-      input_password: '',
-      input_sMTPSecure: 'tls',
-      input_port: '2525',
-    }
-  },
-  watch: {
-    input_host : function(val){
-      app.config['email']['host'] = val;
-    },
-    input_username : function(val){
-      app.config['email']['emailUser'] = val;
-    },
-    input_password : function(val){
-      app.config['email']['emailSenha'] = val;
-    },
-    input_sMTPSecure : function(val){
-      app.config['email']['sMTPSecure'] = val;
-    },
-    input_port : function(val){
-      app.config['email']['port'] = val;
-    },
-  },
-  template: '#config2'
-});
-
-var config3 = Vue.component('config-3', {
-  data: function () {
-    return {
       input_host: 'localhost',
       input_dbname: '',
       input_user: 'root',
@@ -79,11 +52,11 @@ var config3 = Vue.component('config-3', {
       app.config['mysql']['senha'] = val;
     },
   },
-  template: '#config3'
+  template: '#config2'
 });
 
-var config4 = Vue.component('config-4', {
-  template: '#config4',
+var config3 = Vue.component('config-3', {
+  template: '#config3'
 });
 
 
@@ -94,16 +67,9 @@ var app = new Vue({
     config: {
       'servidor': { 
         'url': '', 
-        'tipo': 'mysql', 
+        'tipo': 'json', 
         'admin': 'admin', 
         'senha': 'admin' 
-      },
-      'email': {
-        'host': 'mail.smtp2go.com',
-        'emailUser': '',
-        'emailSenha': '',
-        'sMTPSecure': 'tls',
-        'port': 2525,
       },
       'mysql': {
         'host': 'localhost',
@@ -135,33 +101,12 @@ var app = new Vue({
           this.error = true;
           this.error_log = 'O campo senha é obrigatorio!';
         }else {
-          return this.indexConfig++;
+          if(this.config['servidor']['tipo'] == 'json') return this.indexConfig = 3;
+          else return this.indexConfig++;
         }
       }
       // Etapa 2
       else if(this.indexConfig == 2){
-        if(this.config['email']['host'].length == 0){
-          this.error = true;
-          this.error_log = 'O campo host é obrigatorio!';
-        }else if(this.config['email']['emailUser'].length == 0){
-          this.error = true;
-          this.error_log = 'O campo username é obrigatorio!';
-        }else if(this.config['email']['emailSenha'].length == 0){
-          this.error = true;
-          this.error_log = 'O campo senha é obrigatorio!';
-        }else if(this.config['email']['sMTPSecure'].length == 0){
-          this.error = true;
-          this.error_log = 'O campo sMTPSecure é obrigatorio!';
-        }else if(this.config['email']['port'].length == 0){
-          this.error = true;
-          this.error_log = 'O campo length é obrigatorio!';
-        }else {
-          if(this.config['servidor']['tipo'] == 'json') return this.indexConfig = 4;
-          else return this.indexConfig++;
-        }
-      }
-      // Etapa 3
-      else if(this.indexConfig == 3){
         if(this.config['mysql']['host'].length == 0){
           this.error = true;
           this.error_log = 'O campo host é obrigatorio!';
@@ -185,8 +130,8 @@ var app = new Vue({
           return this.indexConfig++;
         }
       }
-      // Etapa 4 { Fim }
-      else if(this.indexConfig >= 4){
+      // Etapa 3
+      else if(this.indexConfig == 3){
         this.etapa = 'Finalizar';
         this.finalizar();
       }
@@ -195,7 +140,7 @@ var app = new Vue({
       if(this.indexConfig > 1){
         this.etapa = 'Próxima';
         this.indexConfig--;
-        if(this.config['servidor']['tipo'] == 'json' && this.indexConfig == 3){
+        if(this.config['servidor']['tipo'] == 'json' && this.indexConfig == 2){
           this.indexConfig--;
         }
       }
@@ -232,12 +177,6 @@ var app = new Vue({
           user.append('dbname', this.config['mysql']['dbname']);
           user.append('user', this.config['mysql']['user']);
           user.append('senha', this.config['mysql']['senha']);
-
-          user.append('email_host', this.config['email']['host']);
-          user.append('email_user', this.config['email']['emailUser']);
-          user.append('email_senha', this.config['email']['emailSenha']);
-          user.append('email_sMTPSecure', this.config['email']['sMTPSecure']);
-          user.append('email_port', this.config['email']['port']);
 
       let url = 'install.php/ff';
 

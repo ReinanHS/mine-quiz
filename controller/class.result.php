@@ -48,42 +48,35 @@ class result
 	}
 	public function email()
 	{
-		$file = str_replace("controller", "", __DIR__);
-		$cofig = parse_ini_file( $file.'config.ini', true );
-		$html = $this->getEmailHTML();
-		$mail = new PHPMailer(true);
+		$assunto = 'Análise de Comportamento';
+		
+		$header = "MINE-Version: 1.0\n";
+		$header .= "Content-type: text/html; charset=iso-8859-1\n";
+		
 		try {
-		    //Server settings
-		    $mail->SMTPDebug = false;                            // Enable verbose debug output
-		    $mail->do_debug = 0;
-		    $mail->isSMTP();                                    // Set mailer to use SMTP # yiwip@khtyler.com reinan5353@cliptik.net
-		    $mail->Host = $cofig['email']['host'];  			// Specify main and backup SMTP servers
-		    $mail->SMTPAuth = $cofig['email']['sMTPAuth'];      // Enable SMTP authentication
-		    $mail->Username = $cofig['email']['username'];      // SMTP username
-		    $mail->Password = $cofig['email']['password'];      // SMTP password
-		    $mail->SMTPSecure = $cofig['email']['sMTPSecure'];  // Enable TLS encryption, `ssl` also accepted
-		    $mail->Port = $cofig['email']['port'];              // TCP port to connect to
-		    //Recipients
-		    $mail->setFrom($cofig['email']['username'], 'Prepara Cursos Simão Dias');
-		    //$mail->addAddress('preparacursos.sd.2017@gmail.com', 'ReinanHS');     		// Add a recipient
-		    $mail->addAddress('reinangabriel1520@gmail.com', 'ReinanHS');     		// Add a recipient
-		    //Content
-		    $mail->isHTML(true);                                  	// Set email format to HTML
-		    $mail->Subject = 'Análise comportamental!';
-		    $mail->Body    = $html;
-		    $mail->AltBody = 'Obrigado pela atenção!';
-		    $mail->send();
+		    
+		    $html = $this->getEmailHTML();
+
+		    mail('reinangabriel1520@gmail.com', $assunto, $html, $header);
 		    
 			return true;
 
 		} catch (Exception $e) {
 			header('HTTP/1.0 303 Erro ao enviar email');
-            echo "Não foi possível enviar o e-mail.";
-  			echo "<b>Informações do erro:</b> " . $mail->ErrorInfo;
+            echo "Ocorreu um erro ao enviar as informações via email!";
+
+			$html = $this->getEmailHTML();
+		    $success = mail('reinangabriel1520@gmail.com', $assunto, $html, $header);
+		    if ($success) return true;	
+
+			$errorMessage = error_get_last()['message'];
+	    	print_r($errorMessage);
+
 			return false;
 		}
 
 		//echo $this->getEmailHTML();
+
 	}
 }
 ?>

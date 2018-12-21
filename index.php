@@ -10,8 +10,6 @@ if (!file_exists('config.ini'))
 }
 else
 {
-
-	require_once($file."vendor/PHPMailer/class.phpmailer.php");
 	require_once($file.'controller/action.php');
 	require_once($file.'controller/class.banco.php');
 	require_once($file.'rotas.php');

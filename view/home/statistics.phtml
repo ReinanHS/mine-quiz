@@ -1,72 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <!-- Codificação caracteres da página -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- SEO Geral -->
-  <title>Análise de Comportamento</title>
-  <meta name="description" content="Faça agora uma análise comportamental completa! Saiba qual o seu perfil comportamental. Descubra se você é lobo, tubarão, gato ou águia!">
-  <link rel="canonical" href="<?php echo $cofig['main']['url'] ?>">
-  <meta name="author" content="ReinanHS">
-  <meta name="robots" content="index">
-
-  <!-- Google+ / Schema.org -->
-  <meta itemprop="name" content="Análise comportamental - Teste de Perfil Comportamental - Prepara Cursos Simão Dias">
-  <meta itemprop="description" content="Faça agora uma análise comportamental completa! Saiba qual o seu perfil comportamental. Descubra se você é lobo, tubarão, gato ou águia!">
-  <meta itemprop="image" content="https://s3.amazonaws.com/ibc-portal/wp-content/uploads/2018/07/25152640/perfis-comportamentais.jpg">
-  <link href="https://plus.google.com/+SuaPagina" rel="publisher">
-  
-  <!-- Open Graph Facebook -->
-  <meta property="og:title" content="Análise comportamental - Teste de Perfil Comportamental - Prepara Cursos Simão Dias">
-  <meta property="og:description" content="Faça agora uma análise comportamental completa! Saiba qual o seu perfil comportamental. Descubra se você é lobo, tubarão, gato ou águia!">
-  <meta property="og:site_name" content="Prepara Cursos Simão Dias - Análise comportamental"/>
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://s3.amazonaws.com/ibc-portal/wp-content/uploads/2018/07/25152640/perfis-comportamentais.jpg">
-
-  <!-- Twitter -->
-  <meta name="twitter:title" content="Análise comportamental - Teste de Perfil Comportamental - Prepara Cursos Simão Dias">
-  <meta name="twitter:description" content="Faça agora uma análise comportamental completa! Saiba qual o seu perfil comportamental. Descubra se você é lobo, tubarão, gato ou águia!">
-  <meta name="twitter:url" content="<?php echo $cofig['main']['url'] ?>">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:image" content="https://s3.amazonaws.com/ibc-portal/wp-content/uploads/2018/07/25152640/perfis-comportamentais.jpg">
-  <!-- <meta name="twitter:creator" content="@estevanmaito"> -->
-  <meta name="twitter:site" content="@empresa">
-
-  <meta property="og:locale" content="pt_BR" />
-  <meta property="og:type" content="article" />
-  <meta property="og:title" content="Análise comportamental - Teste de Perfil Comportamental - Prepara Cursos Simão Dias" />
-  <meta property="og:description" content="Faça agora uma análise comportamental completa! Saiba qual o seu perfil comportamental. Descubra se você é lobo, tubarão, gato ou águia!" />
-  <meta property="og:url" content="<?php echo $cofig['main']['url'] ?>" />
-  <meta property="og:site_name" content="Portal" />
-  <meta property="article:section" content="Comportamento" />
-  <meta property="article:published_time" content="2018-12-17T12:00:49+00:00" />
-  <meta property="article:modified_time" content="2018-12-18T14:23:38+00:00" />
-  <meta property="og:updated_time" content="2018-12-17T14:23:38+00:00" />
-  <meta property="og:image" content="https://s3.amazonaws.com/ibc-portal/wp-content/uploads/2016/04/09211914/IBC-Instituto-Brasileiro-de-Coaching-Teste-Perfil-Comportamental.jpg" />
-  <meta property="og:image:secure_url" content="https://s3.amazonaws.com/ibc-portal/wp-content/uploads/2016/04/09211914/IBC-Instituto-Brasileiro-de-Coaching-Teste-Perfil-Comportamental.jpg" />
-  <meta property="og:image:width" content="720" />
-  <meta property="og:image:height" content="344" />
-  <meta property="og:image:alt" content="Perfil comportamental" />
-
-  <link rel="apple-touch-icon" sizes="57x57" href="<?php echo $cofig['main']['url'] ?>img/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="<?php echo $cofig['main']['url'] ?>img/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="<?php echo $cofig['main']['url'] ?>img/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="<?php echo $cofig['main']['url'] ?>img/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="<?php echo $cofig['main']['url'] ?>img/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="<?php echo $cofig['main']['url'] ?>img/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="<?php echo $cofig['main']['url'] ?>img/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="<?php echo $cofig['main']['url'] ?>img/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $cofig['main']['url'] ?>img/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192"  href="<?php echo $cofig['main']['url'] ?>img/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $cofig['main']['url'] ?>img/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="<?php echo $cofig['main']['url'] ?>img/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $cofig['main']['url'] ?>img/favicon-16x16.png">
-  <link rel="manifest" href="<?php echo $cofig['main']['url'] ?>img/manifest.json">
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-TileImage" content="<?php echo $cofig['main']['url'] ?>img/ms-icon-144x144.png">
-  <meta name="theme-color" content="#ffffff">
+  <?php include_once($file.'view/home/meta_tags.phtml'); ?>
   <!-- Style -->
   <link rel="stylesheet" type="text/css" href="<?php echo $cofig['main']['url'] ?>css/result/style.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -101,30 +36,38 @@
             <h2>O que é Analisado no Teste Comportamental?</h2>
             <p>Em essência, o teste comportamental é uma das metodologias mais assertivas e estratégicas no que tange a boa gestão de pessoas nas organizações. Ressalto isso porque é fato inegável que, quanto mais compatível for o seu quadro de funcionários com as suas necessidades, desafios e metas, maiores são suas chances de ser bem-sucedida.</p>
             <hr>
-            <h3>Tubarão (Ação)</h3>
+            <h3>Tubarão (Fazer Rápido)</h3>
             <p>Um dos bichos mais completos do reino animal, caçador-nato, figura no topo de sua cadeia alimentar. As pessoas com este perfil são consideradas mais focadas em resultados, determinadas, objetivas e capazes de superar seus desafios de forma precisa e rápida e com força e determinação.</p>
             <p>Quer saber mais sobre o perfil do Tubarão? Assista ao meu vídeo abaixo:</p>
             <center>
-            	<iframe width="560" height="315" src="https://www.youtube.com/embed/fAYyhfpdUEY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/fAYyhfpdUEY" allowfullscreen></iframe>
+                </div>
             </center>
-            <h3>Gato (Comunicação)</h3>
+            <br><h3>Gato (Fazer Junto)</h3>
             <p>O gato é um animal mitológico, pois conta-se que no antigo Egito era venerado tal qual um deus. Mesmo tendo seu próprio tempo, é também um bicho amoroso, brincalhão, carinhoso e acolhedor, um companheiro fiel.</p>
             <p>Não por acaso, os indivíduos com as características do perfil gato são consideradas mais receptivas, abertas ao trabalho em equipe e de fácil comunicação. Tem o poder de unir, ou seja, de aglutinar as pessoas ao seu redor, de gerar tranquilidade, harmonia e de pacificar os ambientes.</p>
             <p>Clique no vídeo abaixo para saber mais sobre o perfil comportamental do Gato:</p>
             <center>
-            	<iframe width="560" height="315" src="https://www.youtube.com/embed/Wap7ZuF9Yfg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Wap7ZuF9Yfg" allowfullscreen></iframe>
+                </div>
             </center>
-            <h3>Águia (Idealização)</h3>
+            <br><h3>Águia (Fazer Diferente)</h3>
             <p>Animal esplêndido, que voa alto e que, com sua visão privilegiada, consegue ver muito mais longe. Por isso, pessoas com as características da Águia são consideradas visionárias, criativas, capazes de visualizar o futuro e de provocar mudanças significativas ao seu redor. </p>
             <p>Confira o meu vídeo abaixo e saiba mais sobre os pontos fortes e de melhoria da Águia:</p>
             <center>
-            	<iframe width="560" height="315" src="https://www.youtube.com/embed/iWzFdTi2Huo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/iWzFdTi2Huo" allowfullscreen></iframe>
+                </div>
             </center>
-            <h3>Lobo (Organização)</h3>
+            <br><h3>Lobo (Fazer Certo)</h3>
             <p>Animais meticulosos e observadores, cuja audição pode ser impactada pelo som de uma folha caindo, são fieis à sua matilha e por isso têm forte senso de grupo. Pessoas com o perfil “Lobo” são consideradas metódicas e organizadas, como também possuidoras de uma poderosa visão estratégica, o que lhes permite traçar planos simples ou complexos e colocá-los em prática com mais efetividade.</p>
             <p>Assista ao meu vídeo e conheça mais sobre as principais características do Lobo:</p>
             <center>
-            	<iframe width="560" height="315" src="https://www.youtube.com/embed/3P5lHApfrHc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/3P5lHApfrHc" allowfullscreen></iframe>
+                </div>
             </center>
             <br><hr>
             <h3>Comentários:</h3>

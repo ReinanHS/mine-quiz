@@ -58,19 +58,12 @@
             </li>
             <li class="list-group-item d-flex justify-content-between" v-bind:class="{ 'bg-light': indexConfig == 2 }">
               <div>
-                <h6 class="my-0">Email</h6>
-                <small class="text-muted">Informações sobre o email</small>
+                <h6 class="my-0">Banco de dados</h6>
+                <small class="text-muted">Criação do banco de dados</small>
               </div>
               <span class="text-muted">2</span>
             </li>
             <li class="list-group-item d-flex justify-content-between" v-bind:class="{ 'bg-light': indexConfig == 3 }">
-              <div>
-                <h6 class="my-0">Banco de Dados</h6>
-                <small class="text-muted">Criação do banco de dados</small>
-              </div>
-              <span class="text-muted">3</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between" v-bind:class="{ 'bg-light': indexConfig == 4 }">
               <div class="text-success">
                 <h6 class="my-0">Informações legais</h6>
                 <small>@ReinanHS | <a href="https://github.com/ReinanHS/Prepara-Curso-Mine-Quiz">GitHub</a></small>
@@ -100,7 +93,6 @@
           <config-1 v-if="indexConfig == 1"></config-1>
           <config-2 v-if="indexConfig == 2"></config-2>
           <config-3 v-if="indexConfig == 3"></config-3>
-          <config-4 v-if="indexConfig == 4"></config-4>
 
           <button class="btn btn-primary btn-lg btn-block" type="submit" @click.stop.prevent="nextConfig()" v-if="!sucesso">{{ etapa }} etapa</button>
         </div>
@@ -109,9 +101,9 @@
       <footer class="my-5 pt-5 text-muted text-center text-small">
         <p class="mb-1">&copy; 2017-2018 ReinanHS</p>
         <ul class="list-inline">
-          <li class="list-inline-item"><a href="#">Privacy</a></li>
-          <li class="list-inline-item"><a href="#">Terms</a></li>
-          <li class="list-inline-item"><a href="#">Support</a></li>
+          <li class="list-inline-item"><a href="#">Privacidade</a></li>
+          <li class="list-inline-item"><a href="#">Termos</a></li>
+          <li class="list-inline-item"><a href="#">Suporte</a></li>
         </ul>
       </footer>
     </div>
@@ -122,14 +114,14 @@
         <h4 class="mb-3">Configurações Básicas</h4>
         <div class="row">
           <div class="col-md-6 mb-3">
-            <label for="url">Url do servidor!</label>
-            <input type="text" class="form-control" id="url" placeholder="Qual é a url do servidor?" value="http://localhost" required v-model="input_url">
+            <label for="url">Diretório raiz</label>
+            <input type="text" class="form-control" id="url" placeholder="http://seu-domínio.com/minha-pasta/" value="http://localhost" required v-model="input_url">
             <div class="invalid-feedback">
               Valid url is required.
             </div>
           </div>
           <div class="col-md-6 mb-3">
-            <label for="tipoData">Tipo de Bando</label>
+            <label for="tipoData">Tipo do banco de dados</label>
             <select class="form-control" id="tipoData" v-model="input_tipo">
               <option value="mysql">Mysql</option>
               <option value="json">JSON</option>
@@ -158,40 +150,6 @@
     </template>
 
     <template id="config2">
-      <form class="needs-validation">
-        <h4 class="mb-3">Informações sobre o email</h4>
-        <div class="row">
-          
-          <div class="col-md-12">
-            <label for="host">Host</label>
-            <input type="text" class="form-control" id="host" placeholder="Qual é o host?" v-model="input_host">
-          </div>
-
-          <div class="col-md-6 mb-3">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" placeholder="Qual é o username?" v-model="input_username">
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="password">Senha</label>
-            <input type="password" class="form-control" id="password" v-model="input_password" placeholder="Qual é a senha?">
-          </div>
-
-          <div class="col-md-6 mb-3">
-            <label for="sMTPSecure">sMTPSecure</label>
-            <input type="text" class="form-control" id="sMTPSecure" placeholder="Qual é o sMTPSecure?" v-model="input_sMTPSecure">
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="port">Porta</label>
-            <input type="text" class="form-control" id="port" v-model="input_port" placeholder="Qual é a porta?">
-          </div>         
-  
-        </div>
-
-        <hr class="mb-4">
-      </form>
-    </template>
-
-    <template id="config3">
       <form class="needs-validation">
         <h4 class="mb-3">Informações do Mysql</h4>
         <div class="row">
@@ -226,7 +184,7 @@
       </form>
     </template>
 
-    <template id="config4">
+    <template id="config3">
       <form class="needs-validation">
         <h4 class="mb-3">Informações Gerais</h4>
         <div class="row">
@@ -260,7 +218,6 @@
         <hr class="mb-4">
       </form>
     </template>
-    
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
