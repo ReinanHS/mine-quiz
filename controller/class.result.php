@@ -5,25 +5,52 @@
 class result
 {
 	// Atributos
+	public $token;
+	public $quiz_i;
+	public $quiz_c;
+	public $quiz_a;
+	public $quiz_o;
+	public $nome;
+	public $idade;
 	// Métodos Especiais
 	public function __construct()
 	{
-		$_SESSION['quiz_i'] = $_POST['i'];
-		$_SESSION['quiz_c'] = $_POST['c'];
-		$_SESSION['quiz_a'] = $_POST['a'];
-		$_SESSION['quiz_o'] = $_POST['o'];
-		$_SESSION['nome'] = $_POST['nome'];
-		$_SESSION['idade'] = $_POST['idade'];
-		$this->email();
+		$this->token 	= $_POST['token'];
+
+		$this->quiz_i 	= $_POST['i'];
+		$this->quiz_c 	= $_POST['c'];
+		$this->quiz_a 	= $_POST['a'];
+		$this->quiz_o 	= $_POST['o'];
+		
+		$this->nome 	= $_POST['nome'];
+		$this->idade 	= $_POST['idade'];
 	}
 	// Métodos
+	public function valida(){
+		if($_SESSION['token'] == $this->token){ return true; }
+		else return false;
+	}
+	public function getEmailHTML(){
+		$file = str_replace("controller", "", __DIR__);
+		$cofig = parse_ini_file( $file.'config.ini', true );
+
+		$url = ($cofig['main']['url'].'get/email/');
+		
+		$url = $url.urlencode($this->nome).'WPV';
+		$url = $url.$this->idade.'WPV';
+
+		$url = $url.$this->quiz_i.'WPV';
+		$url = $url.$this->quiz_c.'WPV';
+		$url = $url.$this->quiz_a.'WPV';
+		$url = $url.$this->quiz_o;
+
+		return file_get_contents($url);
+	}
 	public function email()
 	{
 		$file = str_replace("controller", "", __DIR__);
 		$cofig = parse_ini_file( $file.'config.ini', true );
-
-		$html = file_get_contents($cofig['main']['url'].'get/email');
-
+		$html = $this->getEmailHTML();
 		$mail = new PHPMailer(true);
 		try {
 		    //Server settings
@@ -36,7 +63,6 @@ class result
 		    $mail->Password = $cofig['email']['password'];      // SMTP password
 		    $mail->SMTPSecure = $cofig['email']['sMTPSecure'];  // Enable TLS encryption, `ssl` also accepted
 		    $mail->Port = $cofig['email']['port'];              // TCP port to connect to
-
 		    //Recipients
 		    $mail->setFrom($cofig['email']['username'], 'Prepara Cursos Simão Dias');
 		    //$mail->addAddress('preparacursos.sd.2017@gmail.com', 'ReinanHS');     		// Add a recipient
@@ -46,7 +72,6 @@ class result
 		    $mail->Subject = 'Análise comportamental!';
 		    $mail->Body    = $html;
 		    $mail->AltBody = 'Obrigado pela atenção!';
-
 		    $mail->send();
 		    
 			return true;
@@ -58,7 +83,7 @@ class result
 			return false;
 		}
 
+		//echo $this->getEmailHTML();
 	}
-
 }
 ?>

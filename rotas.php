@@ -48,9 +48,9 @@ class rotas extends action
 			 	
 			 	return $this->fileNotFind();
 			}
-			elseif($this->urls[0] == 'get' && $this->urls[1] == 'email')
+			elseif($this->urls[0] == 'get' && $this->urls[1] == 'email' && isset($this->urls[2]))
 			{
-		 		$this->PageEmail();
+		 		$this->PageEmail($this->urls[2]);
 		 		return false;
 			}
 			elseif($this->urls[0] == 'set' && $this->urls[1] == 'result')

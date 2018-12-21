@@ -51,6 +51,24 @@
 	<meta property="og:image:height" content="344" />
 	<meta property="og:image:alt" content="Perfil comportamental" />
 
+	<link rel="apple-touch-icon" sizes="57x57" href="<?php echo $cofig['main']['url'] ?>img/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="<?php echo $cofig['main']['url'] ?>img/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="<?php echo $cofig['main']['url'] ?>img/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="<?php echo $cofig['main']['url'] ?>img/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="<?php echo $cofig['main']['url'] ?>img/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="<?php echo $cofig['main']['url'] ?>img/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="<?php echo $cofig['main']['url'] ?>img/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="<?php echo $cofig['main']['url'] ?>img/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="<?php echo $cofig['main']['url'] ?>img/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="<?php echo $cofig['main']['url'] ?>img/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="<?php echo $cofig['main']['url'] ?>img/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="<?php echo $cofig['main']['url'] ?>img/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="<?php echo $cofig['main']['url'] ?>img/favicon-16x16.png">
+	<link rel="manifest" href="<?php echo $cofig['main']['url'] ?>img/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="<?php echo $cofig['main']['url'] ?>img/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+
 	<link rel="stylesheet" href="css/loading.css?v=1.0">
 	<link rel="stylesheet" href="css/style.css?v=1.0">
 	<link rel="stylesheet" href="https://unpkg.com/vue-toastr-2/dist/vue-toastr-2.min.css">
@@ -163,6 +181,7 @@
 							
 					}else{
 						this.quiz_index = 25;
+						this.load = false;
 						//app.index = 2;
 
 						var quiz_a = 0;
@@ -199,6 +218,7 @@
             			user.append('c', quiz_b);
             			user.append('o', quiz_c);
             			user.append('a', quiz_d);
+            			user.append('token', "<?php echo($_SESSION['token']); ?>");
 
             			this.$toastr.success('Aguarde alguns minutos', '', 
 							{ 
@@ -211,6 +231,8 @@
 							// success callback
 							window.location.href = "<?php echo $cofig['main']['url']; ?>"+"resultados";
 							console.log(response);
+
+							//document.querySelector('body').innerHTML = response.body;
 						}, response => {
 							// error callback
 							this.$toastr.error('Ocorreu um erro por favor reinicie o navegador!', '', 
@@ -272,7 +294,7 @@
 		    result: [],
 		    config: {
 		    	'nome': '',
-		    	'idade': '',
+		    	'idade': 18,
 		    },
 		  },
 		  methods: {

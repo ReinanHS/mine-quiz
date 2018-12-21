@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 
 <head>
-    <title></title>
+    <title>Análise de Comportamento</title>
     <!--[if !mso]>-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!--<![endif]-->
@@ -143,7 +143,7 @@
                                                         <tr>
                                                             <td style="word-wrap:break-word;font-size:0px;padding:0px 20px 0px 20px;" align="center">
                                                                 <div style="cursor:auto;color:#000000;font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:11px;line-height:22px;text-align:center;">
-                                                                    <h1 style="font-family: &apos;Cabin&apos;, sans-serif; color: #FFFFFF; font-size: 44px; line-height: 100%;"><span style="font-size:24px;"><span style="color:#c0392b;"><?php echo $nome; ?></span> respodeu o teste de perfil comportamental</span></h1>
+                                                                    <h1 style="font-family: &apos;Cabin&apos;, sans-serif; color: #FFFFFF; font-size: 44px; line-height: 100%;"><span style="font-size:24px;"><span style="color:#c0392b;"><?php echo $result[0]; ?></span> respodeu o teste de perfil comportamental</span></h1>
                                                                     <h3 style="line-height: 100%;"><span style="color:#ffffff;"><span style="font-size:14px;"><em><strong>Veja o resultado abaixo!</strong></em></span></span></h3>
                                                                     <p></p>
                                                                 </div>
@@ -225,7 +225,7 @@
                                                         <tr>
                                                             <td style="word-wrap:break-word;font-size:0px;padding:19px 20px 19px 20px;" align="left">
                                                                 <div style="cursor:auto;color:#000000;font-family:Cabin, sans-serif;font-size:15px;line-height:22px;text-align:left;">
-                                                                    <h2 style="color: #F05D22; line-height: 100%;"><?php echo $quiz_a; ?>% Tubar&#xE3;o</h2>
+                                                                    <h2 style="color: #F05D22; line-height: 100%;"><?php echo $result[4]; ?>% Tubar&#xE3;o</h2>
                                                                     <p>Um dos bichos mais completos do reino animal, ca&#xE7;ador-nato, figura no topo de sua cadeia alimentar.</p>
                                                                 </div>
                                                             </td>
@@ -297,7 +297,7 @@
                                                         <tr>
                                                             <td style="word-wrap:break-word;font-size:0px;padding:20px 20px 20px 20px;" align="left">
                                                                 <div style="cursor:auto;color:#000000;font-family:Cabin, sans-serif;font-size:15px;line-height:22px;text-align:left;">
-                                                                    <h2 style="color: #F05D22; line-height: 100%;"><?php echo $quiz_c; ?>% Gato</h2>
+                                                                    <h2 style="color: #F05D22; line-height: 100%;"><?php echo $result[3]; ?>% Gato</h2>
                                                                     <p>O gato &#xE9; um animal mitol&#xF3;gico, pois conta-se que no antigo Egito era venerado tal qual um deus.</p>
                                                                 </div>
                                                             </td>
@@ -333,7 +333,7 @@
                                                         <tr>
                                                             <td style="word-wrap:break-word;font-size:0px;padding:19px 20px 19px 20px;" align="left">
                                                                 <div style="cursor:auto;color:#000000;font-family:Cabin, sans-serif;font-size:15px;line-height:22px;text-align:left;">
-                                                                    <h2 style="color: #F05D22; line-height: 100%;"><?php echo $quiz_i; ?>% &#xC1;guia</h2>
+                                                                    <h2 style="color: #F05D22; line-height: 100%;"><?php echo $result[2]; ?>% &#xC1;guia</h2>
                                                                     <p>Animal espl&#xEA;ndido, que voa alto e que, com sua vis&#xE3;o privilegiada, consegue ver muito mais longe.</p>
                                                                 </div>
                                                             </td>
@@ -405,7 +405,7 @@
                                                         <tr>
                                                             <td style="word-wrap:break-word;font-size:0px;padding:20px 20px 20px 20px;" align="left">
                                                                 <div style="cursor:auto;color:#000000;font-family:Cabin, sans-serif;font-size:15px;line-height:22px;text-align:left;">
-                                                                    <h2 style="color: #F05D22; line-height: 100%;"><?php echo $quiz_o; ?>% Lobo</h2>
+                                                                    <h2 style="color: #F05D22; line-height: 100%;"><?php echo $result[5]; ?>% Lobo</h2>
                                                                     <p>Animais meticulosos e observadores, cuja audi&#xE7;&#xE3;o pode ser impactada pelo som de uma folha caindo</p>
                                                                 </div>
                                                             </td>
@@ -531,8 +531,8 @@
                                                             <td style="word-wrap:break-word;font-size:0px;padding:15px 15px 15px 15px;" align="left">
                                                                 <div style="cursor:auto;color:#000000;font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:11px;line-height:1.5;text-align:left;">
                                                                     <h2 style="color: #F05D22; line-height: 100%;">Informa&#xE7;&#xF5;es da pessoa:</h2>
-                                                                    <p><span style="font-size:14px;"><strong>Nome</strong>: <em><?php echo $nome; ?></em></span></p>
-                                                                    <p><span style="font-size:14px;"><strong>Idade</strong>: <em><?php echo $idade; ?> anos</em></span></p>
+                                                                    <p><span style="font-size:14px;"><strong>Nome</strong>: <em><?php echo $result[0]; ?></em></span></p>
+                                                                    <p><span style="font-size:14px;"><strong>Idade</strong>: <em><?php echo $result[1]; ?> anos</em></span></p>
                                                                 </div>
                                                             </td>
                                                         </tr>

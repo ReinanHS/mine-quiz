@@ -110,6 +110,10 @@ body{ padding: 0px; margin: 0px; }
 }
 .start button:hover { background: #ff3860; box-shadow: 0px 10px 10px -5px #f33158; }
 
+.answer.box {
+    font-size: 75%;
+}
+
 @media (max-width: 480px) {
   .start main {
     display: list-item;

@@ -23,21 +23,18 @@ class action
 
 		return false;
 	}
-	public function PageEmail(){
+	public function PageEmail($dados){
 		$file = str_replace("controller", "", __DIR__);
 		$cofig = parse_ini_file( $file.'config.ini', true );
 
-		$quiz_i = isset($_SESSION['quiz_i']) ? $_SESSION['quiz_i'] : 0;
-		$quiz_c = isset($_SESSION['quiz_c']) ? $_SESSION['quiz_c'] : 0;
-		$quiz_a = isset($_SESSION['quiz_a']) ? $_SESSION['quiz_a'] : 0;
-		$quiz_o = isset($_SESSION['quiz_o']) ? $_SESSION['quiz_o'] : 0;
+		$result = explode('WPV', $dados);
+		$result[0] = urldecode($result[0]);
 
-		$nome = isset($_SESSION['nome']) ? $_SESSION['nome'] : 'Não Informado';
-		$idade = isset($_SESSION['idade']) ? $_SESSION['idade'] : 18;
+		include_once($this->file.'view/email/email-full.phtml');
 		
-		include_once($this->file.'view/email/email.phtml');
-
-		return false;
+		/*echo "<pre>";
+		print_r($result);*/
+	
 	}
 	public function PageQuiz($id)
 	{
@@ -65,6 +62,19 @@ class action
 	public function PageSetResult(){
 		require_once($this->file.'controller/class.result.php');
 		$result = new result();
+
+		$log = $result->valida();
+		if($log){
+			$result->email();
+
+			$_SESSION['quiz_i'] = $_POST['i'];
+			$_SESSION['quiz_c'] = $_POST['c'];
+			$_SESSION['quiz_a'] = $_POST['a'];
+			$_SESSION['quiz_o'] = $_POST['o'];
+
+		}else{
+			echo "token";
+		}
 
 		return true;		
 	}
