@@ -1,7 +1,7 @@
 <?php
 /**
  * Verificação de conta
- */
+*/
 class result
 {
 	// Atributos
@@ -48,7 +48,7 @@ class result
 	}
 	public function email()
 	{
-		$assunto = 'Análise de Comportamento';
+		$assunto = 'Análise de Comportamento [PREPARA CURSOS SIMÃO DIAS]';
 		
 		$header = "MINE-Version: 1.0\n";
 		$header .= "Content-type: text/html; charset=iso-8859-1\n";
@@ -57,7 +57,7 @@ class result
 		    
 		    $html = $this->getEmailHTML();
 
-		    mail('reinangabriel1520@gmail.com', $assunto, $html, $header);
+		    mail('preparacursos.sd.2017@gmail.com', $assunto, $html, $header);
 		    
 			return true;
 
@@ -66,7 +66,7 @@ class result
             echo "Ocorreu um erro ao enviar as informações via email!";
 
 			$html = $this->getEmailHTML();
-		    $success = mail('reinangabriel1520@gmail.com', $assunto, $html, $header);
+		    $success = mail('preparacursos.sd.2017@gmail.com', $assunto, $html, $header);
 		    if ($success) return true;	
 
 			$errorMessage = error_get_last()['message'];
