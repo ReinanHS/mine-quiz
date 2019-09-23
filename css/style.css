@@ -15,7 +15,7 @@ body{ padding: 0px; margin: 0px; }
 .img-sec {
   width: 100%;
   background: #00d1b2;
-  background: url("https://preview.ibb.co/iLdjHq/wallpaper.jpg");
+  background: url("https://images.pexels.com/photos/2948261/pexels-photo-2948261.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   background-size: cover;
   background-position: center;
   filter: blur(0.5px);
@@ -144,7 +144,7 @@ body{ padding: 0px; margin: 0px; }
   left: 0;
   bottom: 0;
   right: 0;
-  background-image: url("http://oi66.tinypic.com/23mvj48.jpg");
+  background-image: url("https://images.pexels.com/photos/2955624/pexels-photo-2955624.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   background-size: cover;
   background-repeat: no-repeat;
   filter: blur(2px);
