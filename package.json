@@ -1,0 +1,28 @@
+{
+  "name": "zacarias",
+  "version": "1.0.0",
+  "description": "Zacarias é um Framework PHP utilizado para o desenvolvimento web, que utiliza a arquitetura MVC e tem como principal característica ajudar a desenvolver aplicações seguras e performáticas de forma rápida.",
+  "main": "config/builds/index.js",
+  "scripts": {
+    "dev": "npm run development",
+    "development": "node config/builds/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ReinanHS/Zacarias.git"
+  },
+  "keywords": [
+    "php",
+    "framework"
+  ],
+  "author": "ReinanHS",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ReinanHS/Zacarias/issues"
+  },
+  "homepage": "https://github.com/ReinanHS/Zacarias#readme",
+  "dependencies": {
+    "bootstrap": "^4.2.1"
+  }
+}

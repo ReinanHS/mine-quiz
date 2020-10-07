@@ -1,0 +1,30 @@
+{
+    "name": "reinanhs/zacarias",
+    "description": "The Zacarias PHP framework",
+    "keywords": [
+        "framework",
+        "mvc",
+        "psr-4"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/reinanhs/zacarias/",
+    "require": {
+        "php": "^7.3",
+        "coffeecode/router": "1.0.*",
+        "josegonzalez/dotenv": "^3.2",
+        "larapack/dd": "^1.1",
+        "psr/log": "^1.0",
+        "twig/twig": "^3.0"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Zacarias\\": "src/",
+            "Bootstrap\\": "framework/"
+        }
+    }
+}
