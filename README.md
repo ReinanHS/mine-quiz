@@ -14,9 +14,9 @@ Assim usamos o Git para criar um novo projeto do mine quiz em nosso diretório h
 
 Agora, abra um navegador e digite o seguinte endereço:
 ```sh
-$ firefox http://127.0.0.1/quiz-dev/install.php
+$ firefox http://127.0.0.1/
 ```
-Se o diretório tiver um arquivo chamado install.php, esse arquivo será servido como o arquivo inicial. Se não houver install.php, significa que já tem um arquivo de configuração instalado no seu projeto.
+
 # Novas características!
 
   - Utilização do Vue.js.
