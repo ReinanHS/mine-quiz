@@ -1,0 +1,23 @@
+{{'
+<template id="quiz">
+	<section class="quiz">
+		<div class="quiz-container" v-if="load">
+		  <h2>Prepara Cursos Simão Dias</h2>
+		  <div class="question box">
+		    <p><span>{{ quiz_index -1 }}. </span> {{ quiz }}</p>
+		  </div>
+		  <ul class="answers">
+		    <li v-for="(quiz, index) in quizs" class="answer box" @click.stop.prevent="btn($event.target, index, quiz.Vid )">
+		      <p><span>{{ quiz.valor }}</span> {{ quiz.message }}</p>
+		    </li>
+		  </ul>
+		  <button class="box" @click.stop.prevent="quizNext()">Próxima<span>&#x203A;</span></button>
+		</div>
+		<div class="quiz-container" v-if="!load">
+			<div class="question box">
+		    <p>Carregando aguarde um momento...</p>
+		  </div>
+		</div>
+	</section>
+</template>
+'}}

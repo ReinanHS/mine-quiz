@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    {{ include('components/head.html', {url: api_url}) }}
+
+	<link rel="stylesheet" href="{{ api_url }}/css/loading.css?v=1.0">
+	<link rel="stylesheet" href="{{ api_url }}/css/style.css?v=1.0">
+	<link rel="stylesheet" href="https://unpkg.com/vue-toastr-2/dist/vue-toastr-2.min.css">
+</head>
+
+<body>
+
+	<div id="app">
+		<strat v-if="index == 0"></strat>
+		<quiz v-if="index == 1"></quiz>
+    </div>
+
+    {{ include('components/start.html') }}
+    {{ include('components/quiz.html') }}
+
+	<script type="text/javascript">
+		window.php_url = '{{ api_url }}';
+	</script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<!-- Vuejs -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+    <script src="https://unpkg.com/vue-toastr-2/dist/vue-toastr-2.js"></script>
+    <script src="{{ api_url }}/js/app.js"></script>
+</body>
+</html>

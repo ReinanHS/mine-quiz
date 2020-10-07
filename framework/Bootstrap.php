@@ -36,7 +36,7 @@ class Bootstrap{
 		$router = new Router($this->env('APP_URL'));
 		$router->namespace("Zacarias\Controller");
 
-		include dirname(__DIR__) . "/src/Routing/web.php";
+        include dirname(__DIR__) . "/src/Routing/web.php";
 
 		$router->dispatch();
 	}
