@@ -1,7 +1,5 @@
 ![minima theme preview](https://i.ibb.co/0C27zMm/Quiz-Logo-1-1.jpg)
 
-[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
-
 # Sobre Mine Quiz
 O Prepara Curso Mine Quiz é uma plataforma organizacional disponível para Web. Sua função é ajudar o usúario a encontrar um perfil comportamental. Na prática, isso nos ajuda a entender melhor como e porque somos como somos e a fortalecer o nosso empoderamento pessoal e profissional, o que é maravilhoso. Por isso mesmo eu quero aproveitar e te perguntar – Você já parou para analisar qual é o seu perfil de personalidade predominante e como o seu jeito de pensar e agir afeta os seus resultados, relacionamentos e emoções? Se você busca crescimento em todos os âmbitos da sua vida, eu convido você a fazer estas reflexões e a responder estas perguntas.
 
